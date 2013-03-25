@@ -10,7 +10,7 @@ class Auth_model extends MY_Model{
 	
 	public function validate($login, $pass){
 		$query = $this->get_data_where(NULL, array('user_login'=>$login, 'user_password'=>$pass), $this->users_table);
-		if(get_data_as_array($query)){
+		if($this->get_data_as_array($query)){
 			return $this->set_session($query);
 		}
 		else{
